@@ -1,6 +1,6 @@
 package com.unnormal.data.repository;
 
-import com.unnormal.data.entity.UserEntity;
+import com.unnormal.data.entity.PingEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,10 +11,10 @@ import java.util.List;
  */
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
+public interface PingRepository extends JpaRepository<PingEntity, Long> {
 
-    UserEntity save(UserEntity user);
-    List<UserEntity> findByEmail(String email);
+    PingEntity save(PingEntity user);
+    List<PingEntity> findByName(String name);
 
 }
 

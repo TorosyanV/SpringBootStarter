@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Vazgen on 08/04/2016.
  */
-public class DozerHelper {
+public class DozerExtension {
 
     public static <T, U> ArrayList<U> map(final Mapper mapper, final List<T> source, final Class<U> destType) {
 
