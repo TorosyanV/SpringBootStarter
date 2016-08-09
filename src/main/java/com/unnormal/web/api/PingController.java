@@ -29,8 +29,8 @@ public class PingController {
 
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public long insert(@RequestBody PingCreateModel model) {
-        PingDto pingDto = mapper.map(model, PingDto.class);
+    public long insert(@RequestBody PingCreateModel requestModel) {
+        PingDto pingDto = mapper.map(requestModel, PingDto.class);
         long pingId = userService.add(pingDto);
         return pingId;
     }
@@ -38,16 +38,16 @@ public class PingController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public PingModel get(@PathVariable("id") long id) {
         PingDto pingDto = userService.getById(id);
-        PingModel model=mapper.map(pingDto,PingModel.class);
-        return model;
+        PingModel responseModel=mapper.map(pingDto,PingModel.class);
+        return responseModel;
     }
 
 
     @RequestMapping(value = "/find/{name}", method = RequestMethod.GET)
     public List<PingModel> get(@PathVariable("name") String name) {
         List<PingDto> pingDtos = userService.findByName(name);
-        List<PingModel> model= DozerExtension.map(mapper, pingDtos, PingModel.class);
-        return model;
+        List<PingModel> responseModel= DozerExtension.map(mapper, pingDtos, PingModel.class);
+        return responseModel;
     }
 
 }
